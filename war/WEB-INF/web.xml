@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>logger</servlet-name>
+		<servlet-class>com.ohgyun.laserlogger.servlet.LoggerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logger</servlet-name>
+		<url-pattern>/logger</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>viewer</servlet-name>
+		<servlet-class>com.ohgyun.laserlogger.servlet.ViewerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewer</servlet-name>
+		<url-pattern>/viewer</url-pattern>
+	</servlet-mapping>	
+	<servlet>
+		<servlet-name>command</servlet-name>
+		<servlet-class>com.ohgyun.laserlogger.servlet.CommandServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>command</servlet-name>
+		<url-pattern>/command</url-pattern>
+	</servlet-mapping>		
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

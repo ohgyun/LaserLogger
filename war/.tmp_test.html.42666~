@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width = device-width">
+<title>Logger</title>
+<link rel="stylesheet" type="text/css" href="/css/prettify.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+<style type="text/css">
+body {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+.hide {
+	display: none;
+}
+#logger {
+	padding-right:10px;
+	height: 600px;
+	overflow-y: scroll;
+}
+#logger pre:first-child {
+	background: #D9EDF7;
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<pre class="prettyprint">
+// 로거 초기화를 위해 아래 코드가 현재 페이지에 포함됩니다.
+// 로거를 출력할 채널이름은 test_channel, 페이지 주소에 debug=true 파라미터가 포함된 페이지에서만 동작합니다.
+// console.log()를 오버라이드 해 원격 뷰어 페이지로 푸시합니다.
+//
+// @param {string} channel 로깅 채널
+// @param {function: boolean} when 언제 로거를 시작하는가?
+LaserLogger.start('test_channel', function () {
+  return /debug=true/.test(location.search);
+});</pre>
+	<button class="btn" onclick="console.log('test1', 'test2');">콘솔 출력: console.log('test1', 'test2');</button>
+	<pre style="margin-top:10px"><a href="http://laserlogger.appspot.com/viewer?channel=test_channel" target="_blank">뷰어 페이지</a>를 열고, 콘솔 출력 버튼을 클릭해 로그를 확인해보세요.</pre>
+</div>
+<script src="http://js.pusher.com/1.11/pusher.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="/js/prettify.js" type="text/javascript"></script>
+<script src="/js/laserlogger.js" type="text/javascript"></script>
+<script type="text/javascript">
+prettyPrint();
+LaserLogger.start('test_channel', function () {
+  return /debug=true/.test(location.search); // 파라미터에 debug=true가 있는 페이지에서만 동작
+});
+</script>
+</body>
+</html>
